@@ -4,14 +4,13 @@ import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { GlobalProvider } from "../context/GlobalContext";
 import NewMenu from "../components/NewMenu";
-import { router, usePathname } from "expo-router";
+import { usePathname } from "expo-router";
+import { useFonts } from 'expo-font';
 const _layout = () => {
   const [height, setHeight] = useState<number>(Dimensions.get("screen").height);
   const [width, setWidth] = useState(Dimensions.get("screen").width);
   const pathName = usePathname();
   useEffect(() => {
-    console.log(height, width);
-    console.log(pathName)
     const subscription = Dimensions.addEventListener(
       "change",
       ({ window, screen }) => {
@@ -21,6 +20,17 @@ const _layout = () => {
     );
     return () => subscription?.remove();
   });
+
+  const [fontsLoaded, err] = useFonts({
+    'Montserrat-regular': require("../assets/fonts/Montserrat-Regular.ttf"),
+    'Montserrat-bold': require("../assets/fonts/Montserrat-Bold.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    console.log("Cound not load fonts");
+    console.log(err)
+    return null;
+  }
   return (
     <ImageBackground
       style={{

@@ -4,7 +4,7 @@ import { StyleSheet, Image, Pressable } from 'react-native'
 const index = () => {
 
   return (
-    <Link href="/home" asChild>
+    <Link href="/schizofrenie" asChild>
     <Pressable onPress={()=>{
         console.log("pressed")
     }}>

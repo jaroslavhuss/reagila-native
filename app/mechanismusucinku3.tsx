@@ -3,6 +3,7 @@ import React from 'react'
 import ImageComponent from '../components/Image'
 
 const Schizofrenie = () => {
+  
   return (
    <ImageComponent src={require("../assets/5.5.jpg")} back="/mechanismusucinku2" next="/mechanismusucinku4"/>
   )

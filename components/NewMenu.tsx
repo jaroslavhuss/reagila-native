@@ -16,8 +16,8 @@ const NewMenu = () => {
         <Text></Text>
         <Text></Text>
         <Text></Text>
-        <Link style={[styles.menuItem, path === "/schizofrenie" && styles.greenColor]} href="/schizofrenie">SCHIZOFRENIE</Link>
-        <Link style={[styles.menuItem, path === "/kombinace" && styles.greenColor]} href="/kombinace">KOMBINACE</Link>
+        <Link style={[styles.menuItem, path.match(/schizofrenie/) && styles.greenColor]} href="/schizofrenie">SCHIZOFRENIE</Link>
+        <Link style={[styles.menuItem, path.match(/kombinace/) && styles.greenColor]} href="/kombinace">KOMBINACE</Link>
         <Link style={[styles.menuItem, path === "/procreagila" && styles.greenColor] } href="/procreagila">PROČ REAGILA</Link>
         <Link style={[styles.menuItem, 
         
