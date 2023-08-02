@@ -31,7 +31,7 @@ const Schizofrenie = () => {
   }, [fadeAnim]);
   return (
     <ImageBackground source={require("../assets/blank.jpg")} style={{width:"100%", height:"100%", position:"relative"}}>
-      <View style={[{marginLeft:40}]}>
+      <View style={[{marginLeft:40, marginTop:100}]}>
       <Animated.Text style={{
         marginTop:100,
         marginBottom:40,
@@ -39,7 +39,7 @@ const Schizofrenie = () => {
         fontWeight: "bold",
         color: "#07a6a9",
         fontFamily: "Montserrat-bold",
-        opacity: fadeAnim
+       // opacity: fadeAnim
       }}><Text style={{color:"#f2357f"}}>Pomalá titrace kariprazinu</Text>{"\n"}
       + 1,5 mg týdne zlepšuje tolerabilitu léčby</Animated.Text>
       
@@ -48,13 +48,13 @@ const Schizofrenie = () => {
           height:140,
           resizeMode:"contain",
           maxWidth:"95%",
-          marginLeft: marginLeftAnim.interpolate({
-            inputRange: [-50, 100], // Adjust the range for desired movement
-            outputRange: ['-50%', '0%'],
-          }),
+          // marginLeft: marginLeftAnim.interpolate({
+          //   inputRange: [-50, 100], // Adjust the range for desired movement
+          //   outputRange: ['-50%', '0%'],
+          // }),
        }}/>
        <Animated.Text style={{
-        opacity: fadeAnim,
+      //  opacity: fadeAnim,
        }}>
        <P>Cílová dávka se upravuje dle klinické odpovědi pacienta.</P>
        </Animated.Text>

@@ -32,16 +32,17 @@ const Schizofrenie = () => {
 }, [marginLeftAnim]);
   return (
     <ImageBackground source={require("../assets/blank.jpg")} style={{width:"100%", height:"100%", position:"relative"}}>
-      <View style={[{marginLeft:40}]}>
+      <View style={[{}]}>
       <H1 style={{
         marginTop:100,
-        marginBottom:40
+        marginBottom:20,
+        textAlign:"center"
       }}>Střední vhodnost pro kombinaci
       s kariprazinem</H1>
       
        <Animated.Image source={require("../assets/stredni-velikost.png")} style={{
           width:"100%",
-          height:270,
+          height:330,
           resizeMode:"contain",
           marginLeft: marginLeftAnim.interpolate({
             inputRange: [-50, 100], // Adjust the range for desired movement
@@ -51,8 +52,10 @@ const Schizofrenie = () => {
 <Animated.View
 style={{opacity: fadeAnim}}
 ><H1 style={{
-        marginTop:30,
-        marginBottom:40
+        marginTop:60,
+        marginBottom:10,
+        textAlign:"center",
+        fontSize:26
       }}>Doporučený postup augmentace či převodu</H1>
         <Image source={require("../assets/agumentace2.png")} style={{
           width:"100%",

@@ -30,7 +30,7 @@ const Schizofrenie = () => {
   }, [fadeAnim]);
   return (
     <ImageBackground source={require("../assets/blank.jpg")} style={{width:"100%", height:"100%", position:"relative"}}>
-      <View style={[{marginLeft:40}]}>
+      <View style={[{marginLeft:40, marginTop:50}]}>
       <Animated.Text style={{
         marginTop:100,
         marginBottom:40,
@@ -38,7 +38,7 @@ const Schizofrenie = () => {
         fontWeight: "bold",
         color: "#07a6a9",
         fontFamily: "Montserrat-bold",
-        opacity: fadeAnim
+      //  opacity: fadeAnim
       }}>Jednoduché užívání prípravku
       REAGILA{"\n"}<Text style={{color:"#f2357f"}}>1 x denně</Text> nezávisle na:</Animated.Text>
                
@@ -52,10 +52,10 @@ const Schizofrenie = () => {
           backgroundColor:"white",
           borderColor:"#8db759",
          
-          marginLeft: marginLeftAnim.interpolate({
-            inputRange: [-50, 100], // Adjust the range for desired movement
-            outputRange: ['-50%', '0%'],
-          }),
+          // marginLeft: marginLeftAnim.interpolate({
+          //   inputRange: [-50, 100], // Adjust the range for desired movement
+          //   outputRange: ['-50%', '0%'],
+          // }),
           
        }}/>
       </View>

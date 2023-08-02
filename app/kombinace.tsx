@@ -70,7 +70,7 @@ const Schizofrenie = () => {
       <View style={{marginLeft:40}}>
       <H1 style={{
         marginTop:80,
-        marginBottom:40
+        marginBottom:20
       }}>Důvody pro kombinace antipsychotik{"\n"}v léčbě schizofrenie</H1>
       <Animated.View style={{opacity:fadeBullet1}}>
       <Row>
@@ -103,7 +103,7 @@ const Schizofrenie = () => {
         
        <Animated.View style={{opacity: fadeAnim}}>
        <H1 style={{
-        marginTop:20,
+        marginTop:60,
         marginBottom:20
        }}>Vhodnost kombinací kariprazinu{"\n"}s dalšími antipsychotiky</H1>
        <Image source={require("../assets/kombinace1.png")} style={{
