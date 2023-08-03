@@ -1,10 +1,12 @@
 import { StyleSheet, ImageBackground, View, Image, Pressable, Text, Animated } from 'react-native'
 import { H1, P, } from '../components/Styles'
-import React,{useRef, useEffect} from 'react'
+import React,{useRef, useEffect, useState} from 'react'
 import { Link } from 'expo-router'
+import Reference from '../components/Reference'
 const Schizofrenie = () => {
   const marginLeftAnim = useRef(new Animated.Value(200)).current; // Start position
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const [showImage, setShowImage] = useState<boolean>(false);
   useEffect(() => {
       Animated.timing(
         marginLeftAnim,
@@ -56,7 +58,24 @@ const Schizofrenie = () => {
        <Animated.Text style={{
       //  opacity: fadeAnim,
        }}>
-       <P>Cílová dávka se upravuje dle klinické odpovědi pacienta.</P>
+       <View style={{
+         marginTop:100,
+         marginBottom:40,
+         flexDirection:"row",
+          position:"relative",
+          justifyContent:"center",
+      }}>
+<Text style={{
+       
+       fontSize:20, marginBottom:10, fontFamily:"Montserrat-regular"
+     }}>Cílová dávka se upravuje dle klinické odpovědi pacienta.</Text>
+     <Text style={{
+        fontSize: 15,
+        fontFamily: "Montserrat-regular",
+
+        }}>1</Text>
+
+      </View>
        </Animated.Text>
 
 
@@ -77,6 +96,33 @@ const Schizofrenie = () => {
          <Image source={require("../assets/arrow-left.png")}  style={styles.spc}/>
          </Pressable>
       </Link>
+
+      <Pressable style={styles.info} onPress={()=>{
+        setShowImage(!showImage)
+      }}>
+        <Image source={require("../assets/info.png")}  style={styles.spc}/>
+      </Pressable>
+
+      {
+  showImage && <Pressable
+  onPress={()=>{
+    setShowImage(false)
+  }}
+  style={{
+    width:"100%",
+    height:"100%",
+    position:"absolute",
+    top:0,
+    left:0,
+    backgroundColor:"#ffffffd9"
+  }}
+  >
+
+<View style={{marginLeft:40, marginTop:20}}>
+  <Reference />
+  </View>
+  </Pressable>
+}
       </ImageBackground>
   )
 }

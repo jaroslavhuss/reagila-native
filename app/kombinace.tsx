@@ -1,7 +1,8 @@
-import { StyleSheet, ImageBackground, View, Image, Pressable, Animated } from 'react-native'
-import { Row, LeftBulletCell, Cell, H1, Bold, } from '../components/Styles'
-import React, {useRef, useEffect} from 'react'
+import { StyleSheet, ImageBackground, View, Image, Pressable, Animated, Text } from 'react-native'
+import { Row, LeftBulletCell, Cell, Bold, } from '../components/Styles'
+import React, {useRef, useEffect, useState} from 'react'
 import { Link } from 'expo-router'
+import Reference from '../components/Reference'
 
 const Schizofrenie = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -9,6 +10,7 @@ const Schizofrenie = () => {
   const fadeBullet2 = useRef(new Animated.Value(0)).current;
   const fadeBullet3 = useRef(new Animated.Value(0)).current;
   const fadeBullet4 = useRef(new Animated.Value(0)).current;
+  const [showImage, setShowImage] = useState<boolean>(false);
   useEffect(() => {
     Animated.sequence([
       Animated.delay(10000),
@@ -68,10 +70,32 @@ const Schizofrenie = () => {
   return (
     <ImageBackground source={require("../assets/blank.jpg")} style={{width:"100%", height:"100%", position:"relative"}}>
       <View style={{marginLeft:40}}>
-      <H1 style={{
-        marginTop:80,
-        marginBottom:20
-      }}>Důvody pro kombinace antipsychotik{"\n"}v léčbě schizofrenie</H1>
+      <View style={{
+         marginTop:100,
+         marginBottom:40,
+         flexDirection:"row",
+          position:"relative",
+      }}>
+<Text style={{
+        
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "#07a6a9",
+        fontFamily: "Montserrat-bold",
+   
+     }}>Důvody pro kombinace antipsychotik{"\n"}v léčbě schizofrenie</Text>
+     <Text style={{
+        fontSize: 15,
+        fontWeight: "bold",
+        color: "#07a6a9",
+        fontFamily: "Montserrat-bold",
+        position:"absolute",
+        bottom:15,
+        left:312,
+        }}>1</Text>
+
+      </View>
+      
       <Animated.View style={{opacity:fadeBullet1}}>
       <Row>
           <LeftBulletCell/>
@@ -102,10 +126,30 @@ const Schizofrenie = () => {
         
         
        <Animated.View style={{opacity: fadeAnim}}>
-       <H1 style={{
-        marginTop:60,
-        marginBottom:20
-       }}>Vhodnost kombinací kariprazinu{"\n"}s dalšími antipsychotiky</H1>
+       <View style={{
+     marginTop:40,
+     marginBottom:20,
+         flexDirection:"row",
+          position:"relative",
+      }}>
+<Text style={{ 
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "#07a6a9",
+        fontFamily: "Montserrat-bold",
+   
+     }}>Vhodnost kombinací kariprazinu{"\n"}s dalšími antipsychotiky</Text>
+     <Text style={{
+        fontSize: 15,
+        fontWeight: "bold",
+        color: "#07a6a9",
+        fontFamily: "Montserrat-bold",
+        position:"absolute",
+        bottom:15,
+        left:380,
+        }}>1</Text>
+
+      </View>
        <Image source={require("../assets/kombinace1.png")} style={{
           width:"100%",
           height:300,
@@ -123,6 +167,39 @@ const Schizofrenie = () => {
          <Image source={require("../assets/arrow-right.png")}  style={styles.spc}/>
          </Pressable>
       </Link>
+
+
+
+      <Pressable style={styles.info} onPress={()=>{
+        setShowImage(!showImage)
+      }}>
+        <Image source={require("../assets/info.png")}  style={styles.spc}/>
+      </Pressable>
+
+{
+  showImage && <Pressable
+  onPress={()=>{
+    setShowImage(false)
+  }}
+  style={{
+    width:"100%",
+    height:"100%",
+    position:"absolute",
+    top:0,
+    left:0,
+    backgroundColor:"#ffffffd9",
+  }}
+  >
+    <View style={{
+      marginLeft:50,
+      marginTop:40
+    }}>
+    <Reference />
+    </View>
+    
+    
+    </Pressable>
+}
       </ImageBackground>
   )
 }
@@ -152,6 +229,27 @@ const styles = StyleSheet.create({
     width:100,
     height:60,
     marginRight:50
+  },
+  info:{
+    position:"absolute",
+    bottom:0,
+    right:0,
+    width:100,
+    height:60,
+    marginRight:"30%"
+  },
+  popUPImage:{
+    width:"100%",
+    height:200,
+    position:"absolute",
+    top:"30%",
+    left:0,
+    padding:4,
+    borderRadius:12,
+    borderWidth:2,
+    borderColor:"#e3906f",
+    maxWidth:"90%",
+    resizeMode:"contain",
+    marginLeft:27
   }
-
 })

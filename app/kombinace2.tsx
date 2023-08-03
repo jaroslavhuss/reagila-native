@@ -1,7 +1,10 @@
-import { StyleSheet, ImageBackground, View, Image, Pressable, Animated } from 'react-native'
+import { StyleSheet, ImageBackground, View, Image, Pressable, Animated, Text } from 'react-native'
 import { H1, } from '../components/Styles'
 import React,{useState, useEffect, useRef} from 'react'
 import { Link } from 'expo-router'
+import Reference from '../components/Reference'
+import Vyhody from '../components/Vyhody'
+import Nevyhody from '../components/Nevyhody'
 const Schizofrenie = () => {
   const [showImage, setShowImage] = useState<boolean>(false);
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -34,11 +37,32 @@ const Schizofrenie = () => {
   return (
     <ImageBackground source={require("../assets/blank.jpg")} style={{width:"100%", height:"100%", position:"relative"}}>
       <View style={[{}]}>
-      <H1 style={{
-        marginTop:100,
-        marginBottom:20,
-        textAlign:"center"
-      }}>Vysoká vhodnost pro kombinaci s Kariprazinem</H1>
+      
+      
+      </View>
+      <View style={{
+         marginTop:100,
+         marginBottom:40,
+         flexDirection:"row",
+          position:"relative",
+          justifyContent:"center",
+      }}>
+<Text style={{
+       
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "#07a6a9",
+        fontFamily: "Montserrat-bold",
+      textAlign:"center",
+     }}>Vysoká vhodnost pro kombinaci s Kariprazinem</Text>
+     <Text style={{
+        fontSize: 15,
+        fontWeight: "bold",
+        color: "#07a6a9",
+        fontFamily: "Montserrat-bold",
+
+        }}>1</Text>
+
       </View>
       <Animated.Image source={require("../assets/vysoka-vhodnost.png")} style={{
           width:"100%",
@@ -102,7 +126,14 @@ const Schizofrenie = () => {
     left:0,
     backgroundColor:"#ffffffd9"
   }}
-  ><Image source={require("../assets/vyhody-nevyhody.png")} style={styles.popUPImage}/></Pressable>
+  >
+  <View style={{marginLeft:40, marginTop:20}}>
+    <Vyhody />
+    <Nevyhody />
+  <Reference />
+  </View>
+
+  </Pressable>
 }
       </ImageBackground>
   )
@@ -153,9 +184,6 @@ const styles = StyleSheet.create({
 popUPImage:{
   width:"100%",
   height:200,
-  position:"absolute",
-  top:"30%",
-  left:0,
   padding:4,
   borderRadius:12,
   borderWidth:2,

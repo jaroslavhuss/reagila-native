@@ -1,9 +1,11 @@
 import { StyleSheet, ImageBackground, View, Image, Pressable, Text, Animated } from 'react-native'
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'expo-router'
+import Reference from '../components/Reference';
 const Schizofrenie = () => {
   const marginLeftAnim = useRef(new Animated.Value(200)).current; // Start position
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const [showImage, setShowImage] = useState<boolean>(false);
   useEffect(() => {
       Animated.timing(
         marginLeftAnim,
@@ -31,7 +33,13 @@ const Schizofrenie = () => {
   return (
     <ImageBackground source={require("../assets/blank.jpg")} style={{width:"100%", height:"100%", position:"relative"}}>
       <View style={[{marginLeft:40, marginTop:50}]}>
-      <Animated.Text style={{
+      <View style={{
+         flexDirection:"row",
+          position:"relative",
+          justifyContent:"center",
+          width:800
+      }}>
+      <Text style={{
         marginTop:100,
         marginBottom:40,
         fontSize: 30,
@@ -40,8 +48,19 @@ const Schizofrenie = () => {
         fontFamily: "Montserrat-bold",
       //  opacity: fadeAnim
       }}>Jednoduché užívání prípravku
-      REAGILA{"\n"}<Text style={{color:"#f2357f"}}>1 x denně</Text> nezávisle na:</Animated.Text>
-               
+      REAGILA{"\n"}<Text style={{color:"#f2357f"}}>1 x denně</Text> nezávisle na:</Text>
+      <Text style={{
+        fontSize: 15,
+        fontWeight: "bold",
+        color: "#07a6a9",
+        fontFamily: "Montserrat-bold",
+        position:"absolute",
+        top:0,
+        right:0,
+        marginTop:140,
+        marginRight:345
+        }}>3</Text>
+      </View>
        <Animated.Image source={require("../assets/table2.png")} style={{
           width:"100%",
           height:400,
@@ -70,7 +89,32 @@ const Schizofrenie = () => {
          <Image source={require("../assets/arrow-left.png")}  style={styles.spc}/>
          </Pressable>
       </Link>
+      <Pressable style={styles.info} onPress={()=>{
+        setShowImage(!showImage)
+      }}>
+        <Image source={require("../assets/info.png")}  style={styles.spc}/>
+      </Pressable>
 
+      {
+  showImage && <Pressable
+  onPress={()=>{
+    setShowImage(false)
+  }}
+  style={{
+    width:"100%",
+    height:"100%",
+    position:"absolute",
+    top:0,
+    left:0,
+    backgroundColor:"#ffffffd9"
+  }}
+  >
+
+<View style={{marginLeft:40, marginTop:20}}>
+  <Reference />
+  </View>
+  </Pressable>
+}
       </ImageBackground>
   )
 }

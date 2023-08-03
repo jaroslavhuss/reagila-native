@@ -1,7 +1,10 @@
-import { StyleSheet, ImageBackground, View, Image, Pressable, Animated } from 'react-native'
+import { StyleSheet, ImageBackground, View, Image, Pressable, Animated, Text } from 'react-native'
 import { H1, } from '../components/Styles'
 import React,{useState, useEffect, useRef} from 'react'
 import { Link } from 'expo-router'
+import Vyhody2 from '../components/Vyhody2'
+import Nevyhody2 from '../components/Nevyhody2'
+import Reference from '../components/Reference'
 const Schizofrenie = () => {
   const [showImage, setShowImage] = useState<boolean>(false);
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -33,12 +36,30 @@ const Schizofrenie = () => {
   return (
     <ImageBackground source={require("../assets/blank.jpg")} style={{width:"100%", height:"100%", position:"relative"}}>
       <View style={[{}]}>
-      <H1 style={{
-        marginTop:100,
-        marginBottom:20,
-        textAlign:"center"
-      }}>Střední vhodnost pro kombinaci
-      s kariprazinem</H1>
+      <View style={{
+         marginTop:100,
+         marginBottom:40,
+         flexDirection:"row",
+          position:"relative",
+          justifyContent:"center",
+      }}>
+<Text style={{
+       
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "#07a6a9",
+        fontFamily: "Montserrat-bold",
+      textAlign:"center",
+     }}>Střední vhodnost pro kombinaci s Kariprazinem</Text>
+     <Text style={{
+        fontSize: 15,
+        fontWeight: "bold",
+        color: "#07a6a9",
+        fontFamily: "Montserrat-bold",
+
+        }}>1</Text>
+
+      </View>
       
        <Animated.Image source={require("../assets/stredni-velikost.png")} style={{
           width:"100%",
@@ -100,7 +121,14 @@ style={{opacity: fadeAnim}}
     left:0,
     backgroundColor:"#ffffffd9"
   }}
-  ><Image source={require("../assets/vyhody-nevyhody2.png")} style={styles.popUPImage}/></Pressable>
+  >
+
+<View style={{marginLeft:40, marginTop:20}}>
+    <Vyhody2 />
+   <Nevyhody2 />
+  <Reference />
+  </View>
+  </Pressable>
 }
       </ImageBackground>
   )

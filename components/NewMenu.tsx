@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { Link, usePathname } from 'expo-router'
-
+import { AntDesign } from '@expo/vector-icons';
 const NewMenu = () => {
     const path = usePathname();
     const [subMenuOpen, setSubMenuOpen] = useState({
@@ -86,6 +86,11 @@ const NewMenu = () => {
         <Link style={[styles.menuItem,
         path === "/srovnaniap" && styles.greenColor
         ]} href="/srovnaniap">SROVÁNÍ AP</Link>
+        <Link style={[styles.menuItem,
+        path === "/receptory" && styles.greenColor
+        ,{
+            color:"grey"
+        },]} href="/receptory">RECEPTORY <AntDesign name="lock" size={20} color="grey" /></Link>
         <Text></Text>
         <Link href="/" asChild>
         <TouchableOpacity style={{padding:10}} onPress={() => {
