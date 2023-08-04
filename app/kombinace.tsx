@@ -187,7 +187,7 @@ const Schizofrenie = () => {
     position:"absolute",
     top:0,
     left:0,
-    backgroundColor:"#ffffffd9",
+    backgroundColor:"white",
   }}
   >
     <View style={{

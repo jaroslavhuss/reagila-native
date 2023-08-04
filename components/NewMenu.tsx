@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, Pressable } from 'reac
 import React, { useState } from 'react'
 import { Link, usePathname } from 'expo-router'
 import { AntDesign } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 const NewMenu = () => {
     const path = usePathname();
     const [subMenuOpen, setSubMenuOpen] = useState({
@@ -17,7 +18,20 @@ const NewMenu = () => {
         <Text></Text>
         <Text></Text>
         <Link style={[styles.menuItem, path.match(/schizofrenie/) && styles.greenColor]} href="/schizofrenie">SCHIZOFRENIE</Link>
-        <Link style={[styles.menuItem, path.match(/kombinace/) && styles.greenColor]} href="/kombinace">KOMBINACE</Link>
+        <View style={{
+            position:"relative"
+        }}>
+        <Link style={[styles.menuItem, path.match(/kombinace/) && styles.greenColor, {
+            position:"relative",
+            lineHeight:40
+        }]} href="/kombinace"><Text style={{
+        }}>KOMBINACE </Text></Link>
+       <MaterialCommunityIcons name="new-box" size={40} color="black" style={{
+        position:"absolute",
+        top:20,
+        right:50
+       }}/>
+        </View>
         <Link style={[styles.menuItem, path === "/procreagila" && styles.greenColor] } href="/procreagila">PROČ REAGILA</Link>
         <Link style={[styles.menuItem, 
         
@@ -89,8 +103,10 @@ const NewMenu = () => {
         <Link style={[styles.menuItem,
         path === "/receptory" && styles.greenColor
         ,{
-            color:"grey"
-        },]} href="/receptory">RECEPTORY <AntDesign name="lock" size={20} color="grey" /></Link>
+            color:"#00408b",
+           // fontStyle:"italic",
+           
+        },]} href="/receptory">Receptory <AntDesign name="lock" size={20} color="#00408b" /></Link>
         <Text></Text>
         <Link href="/" asChild>
         <TouchableOpacity style={{padding:10}} onPress={() => {

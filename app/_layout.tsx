@@ -13,6 +13,28 @@ const _layout = () => {
   const [height, setHeight] = useState<number>(Dimensions.get("screen").height);
   const [width, setWidth] = useState(Dimensions.get("screen").width);
   const pathName = usePathname();
+
+  useEffect(() => {
+    (async()=>{
+    try {
+      await fetch("https://private.gswps.eu:10443/api/reagila-ipads",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data:{
+            screen: pathName,
+            event:"undefined",
+            content:"undefined"
+          }
+        }),
+      })
+    } catch (error) {
+      //Nah, nothing!
+    }
+    })()
+  }, [pathName])
   useEffect(() => {
     const subscription = Dimensions.addEventListener(
       "change",
@@ -107,6 +129,7 @@ const _layout = () => {
     return null;
   }
 
+  
  
   function cacheImages(images:string[]) {
     return images.map(image => {
@@ -117,6 +140,10 @@ const _layout = () => {
       }
     });
   }
+
+  //Analytics
+
+  
   return (
     <ImageBackground
       style={{
