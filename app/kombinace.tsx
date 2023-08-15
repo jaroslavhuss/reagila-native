@@ -72,7 +72,7 @@ const Schizofrenie = () => {
       <View style={{marginLeft:40}}>
       <View style={{
          marginTop:100,
-         marginBottom:40,
+         marginBottom:10,
          flexDirection:"row",
           position:"relative",
       }}>
@@ -127,8 +127,8 @@ const Schizofrenie = () => {
         
        <Animated.View style={{opacity: fadeAnim}}>
        <View style={{
-     marginTop:40,
-     marginBottom:20,
+     marginTop:60,
+     marginBottom:0,
          flexDirection:"row",
           position:"relative",
       }}>
@@ -152,7 +152,7 @@ const Schizofrenie = () => {
       </View>
        <Image source={require("../assets/kombinace1.png")} style={{
           width:"100%",
-          height:300,
+          height:280,
           resizeMode:"contain"
        }}/>
        </Animated.View>

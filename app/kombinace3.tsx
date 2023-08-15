@@ -38,7 +38,7 @@ const Schizofrenie = () => {
       <View style={[{}]}>
       <View style={{
          marginTop:100,
-         marginBottom:40,
+         marginBottom:20,
          flexDirection:"row",
           position:"relative",
           justifyContent:"center",
@@ -63,7 +63,7 @@ const Schizofrenie = () => {
       
        <Animated.Image source={require("../assets/stredni-velikost.png")} style={{
           width:"100%",
-          height:330,
+          height:300,
           resizeMode:"contain",
           marginLeft: marginLeftAnim.interpolate({
             inputRange: [-50, 100], // Adjust the range for desired movement
@@ -126,7 +126,7 @@ style={{opacity: fadeAnim}}
 <View style={{marginLeft:40, marginTop:20}}>
     <Vyhody2 />
    <Nevyhody2 />
-  <Reference />
+
   </View>
   </Pressable>
 }

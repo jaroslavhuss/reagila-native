@@ -42,7 +42,7 @@ const Schizofrenie = () => {
       </View>
       <View style={{
          marginTop:100,
-         marginBottom:40,
+         marginBottom:20,
          flexDirection:"row",
           position:"relative",
           justifyContent:"center",

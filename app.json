@@ -16,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jaroslav.huss.reagila2023"
     },
     "android": {
       "adaptiveIcon": {
@@ -30,6 +31,14 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "fa11995a-eca0-40d5-b9d6-1ed038eda9bb"
+      }
+    }
   }
 }

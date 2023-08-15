@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
 import React from "react";
 import { Bold, Cell, LeftBulletCell, Row } from "./Styles";
 
@@ -13,7 +13,10 @@ const Vyhody2 = () => {
         maxWidth:"95%",
         marginBottom: 20,
     }}>
-      <Text
+      <SafeAreaView>
+
+        <ScrollView>
+        <Text
         style={{
           fontSize: 30,
           fontWeight: "bold",
@@ -59,7 +62,11 @@ AP typu MARTA, zlepšuje primární negativní a kognitivní symptomy
 SCH.[2]
           </Cell>
         </Row>
-      </View>      
+      </View>   
+
+        </ScrollView>
+      </SafeAreaView>
+         
     </View>
   );
 };
