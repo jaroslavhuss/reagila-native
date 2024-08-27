@@ -12,29 +12,27 @@ import { Asset } from 'expo-asset';
 const _layout = () => {
   const [height, setHeight] = useState<number>(Dimensions.get("screen").height);
   const [width, setWidth] = useState(Dimensions.get("screen").width);
-  const pathName = usePathname();
+  const path = usePathname();
 
   useEffect(() => {
-    (async()=>{
-    try {
-      await fetch("https://private.gswps.eu:10443/api/reagila-ipads",{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          data:{
-            screen: pathName,
-            event:"undefined",
-            content:"undefined"
-          }
-        }),
-      })
-    } catch (error) {
-      //Nah, nothing!
-    }
-    })()
-  }, [pathName])
+    (async () => {
+      try {
+        await fetch(`${URL}/centralapp/ipad/analytics/create`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            application_name: "Reagila",
+            screen: path,
+            event: "view",
+            content: "screen",
+            person_identifier: "unknown",
+          }),
+        });
+      } catch (error) {}
+    })();
+  }, [path]);
   useEffect(() => {
     const subscription = Dimensions.addEventListener(
       "change",
@@ -154,7 +152,7 @@ const _layout = () => {
     >
       <GlobalProvider>
         <View style={{display:"flex", flexDirection:"row", height}}  onLayout={onLayoutRootView}>
-            {pathName === "/" ? null : <NewMenu />}
+            {path === "/" ? null : <NewMenu />}
           <View style={{flex:9}}>
             <Slot />
           </View>
