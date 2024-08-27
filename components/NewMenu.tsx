@@ -41,22 +41,6 @@ const NewMenu = () => {
       >
         SCHIZOFRENIE
       </Link>
-
-      <Link
-        style={[
-          styles.menuItem,
-          path.match(/kombinace/) && styles.greenColor,
-          {
-            position: "relative",
-            lineHeight: 40,
-          },
-        ]}
-        href="/kombinace"
-      >
-        <Text style={{}}>KOMBINACE </Text>
-      </Link>
-
-
       <View
         style={{
           position: "relative",
@@ -116,6 +100,23 @@ const NewMenu = () => {
           </Link>
         </>
       )}
+      <Link
+        style={[
+          styles.menuItem,
+          path.match(/kombinace/) && styles.greenColor,
+          {
+            position: "relative",
+            lineHeight: 40,
+          },
+        ]}
+        href="/kombinace"
+      >
+        <Text style={{}}>KOMBINACE </Text>
+      </Link>
+
+
+     
+      
       <Link
         style={[styles.menuItem, path === "/procreagila" && styles.greenColor]}
         href="/procreagila"
