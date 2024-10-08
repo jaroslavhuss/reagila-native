@@ -1,109 +1,40 @@
 import { StyleSheet, ImageBackground, View, Image, Pressable, Animated, Text } from 'react-native'
-import { Row, LeftBulletCell, Cell, Bold, } from '../../../components/Styles'
 import React, {useRef, useEffect, useState} from 'react'
 import { Link } from 'expo-router'
-import Reference from '../../../components/Reference'
+import { WebView } from 'react-native-webview'
+import PDF from "../../../assets/studie_new_2.pdf";
 
 const Schizofrenie = () => {
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const fadeBullet1 = useRef(new Animated.Value(0)).current;
-  const fadeBullet2 = useRef(new Animated.Value(0)).current;
-  const fadeBullet3 = useRef(new Animated.Value(0)).current;
-  const fadeBullet4 = useRef(new Animated.Value(0)).current;
-  const [showImage, setShowImage] = useState<boolean>(false);
-  useEffect(() => {
-    Animated.sequence([
-      Animated.delay(10000),
-      Animated.timing(
-        fadeAnim,
-        {
-          toValue: 1,
-          duration: 1000, // Adjust the duration as needed
-          useNativeDriver: true,
-        }
-      )
-    ]).start();
-  }, [fadeAnim]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    Animated.sequence([
-      Animated.delay(1000),
-      Animated.timing(
-        fadeBullet1,
-        {
-          toValue: 1,
-          duration: 1000, // Adjust the duration as needed
-          useNativeDriver: true,
-        }
-      ),
-      Animated.delay(1000),
-      Animated.timing(
-        fadeBullet2,
-        {
-          toValue: 1,
-          duration: 1000, // Adjust the duration as needed
-          useNativeDriver: true,
-        }
-      ),
-      Animated.delay(1000),
-      Animated.timing(
-        fadeBullet3,
-        {
-          toValue: 1,
-          duration: 1000, // Adjust the duration as needed
-          useNativeDriver: true,
-        }
-      ),
-      Animated.delay(1000),
-      Animated.timing(
-        fadeBullet4,
-        {
-          toValue: 1,
-          duration: 1000, // Adjust the duration as needed
-          useNativeDriver: true,
-        }
-      ),
-    ]).start();
-  }, [fadeBullet1]);
-  
+    setLoading(true);
+    return () => {
+      setLoading(false);
+    };
+  }, []);
+
 
   return (
     <ImageBackground source={require("../../../assets/studie_new_2.png")} style={{width:"100%", height:"100%", position:"relative"}} resizeMode="cover">
 
-     
+<>
+        {loading && (
+          <WebView
+            originWhitelist={["file://*", "http://*", "https://*"]}
+            source={PDF}
+            allowFileAccess
+            allowUniversalAccessFromFileURLs
+            allowFileAccessFromFileURLs
+          />
+        )}
+      </>
+
       <Link href="/navykovelatky/studie" asChild>
        <Pressable style={styles.arrowRight}>
          <Image source={require("../../../assets/arrow-left.png")}  style={styles.spc}/>
          </Pressable>
       </Link>
-
-
-
-
-{
-  showImage && <Pressable
-  onPress={()=>{
-    setShowImage(false)
-  }}
-  style={{
-    width:"100%",
-    height:"100%",
-    position:"absolute",
-    top:0,
-    left:0,
-    backgroundColor:"white",
-  }}
-  >
-    <View style={{
-      marginLeft:50,
-      marginTop:40
-    }}>
-    <Reference />
-    </View>
-    
-    
-    </Pressable>
-}
       </ImageBackground>
   )
 }
